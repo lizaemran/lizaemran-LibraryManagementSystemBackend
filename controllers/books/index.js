@@ -3,13 +3,9 @@ const knex = require('../../db/knex');
 // Gets all addresses
 const getBooks = async (req, res) => {
   try {
-    // const user = await knex.select().from('users').where('id', req.user.id).then((user) =>  { return user[0] })
-
-    // if (user.id === req.user.id) {
       await knex.from('books').select('name', 'author', 'dateOfReturn', 'dateOfBorrow','user_id').then((books) => {
         res.send(books)
       })
-    // }
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
