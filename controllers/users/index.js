@@ -3,7 +3,7 @@ const knex = require('../../db/knex');
 // Get's all users data 
 const getUsers = async (req, res) => {
   try {
-      await knex.from('users').select('name', 'surname').then((users) => {
+      await knex.from('users').select('id','name', 'surname').then((users) => {
         res.send(users)
       } )
   } catch (err) {
