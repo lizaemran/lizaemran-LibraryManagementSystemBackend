@@ -6,5 +6,5 @@ const booksSchema = (table) => {
     table.string('dateOfBorrow').notNullable()
     table.integer("user_id").unsigned()
     table.foreign("user_id").references("users.id")
-  }
+  } 
   module.exports = booksSchema;

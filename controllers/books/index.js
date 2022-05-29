@@ -25,8 +25,7 @@ const updateBook = async (req, res) => {
     if (author) book.author = author;
     if (dateOfReturn) book.dateOfReturn = dateOfReturn;
     if (dateOfBorrow) book.dateOfBorrow = dateOfBorrow;
-    if (user_id) book.user_id = user_id;
-
+    book.user_id = user_id;
     await knex('books').where('id', req.params.id)
       .update(book).then(() => {
         knex.select()
